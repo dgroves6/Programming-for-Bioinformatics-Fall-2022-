@@ -1,0 +1,76 @@
+# Questions for the professor:
+# 1. When I download source code, should I put it in a src/ folder?
+	# Can keep external src code in a vendor/ folder if you want but as long as you have all the dependencies you can delete the external src code you download
+	# Should keep internal code you write in a src/ folder
+# 2. What is the benefit of using 'make install' vs just copying the exe into bin/?
+	# make install also copies all the libraries the exe needs; libraries usually go to usr/local/libs; also creates a man file
+# 3. After installing the software/moving the exe to bin, can I delete the original source code folder I downloaded?
+	# Yes you can
+# Can also dwnld 
+
+1. 
+	1. ls -p | grep -v / | xargs -I F head F
+	2. seq 1 10 | xargs -I F touch fileF.fna
+	3. ls *fna | sed 'p;s/.fna/.fasta/' | xargs -n2 mv
+		# sed duplicates the 1st line then substitutes fna in the 2nd line (total 20 lines)
+		# need to specify -n2 because mv has 2 arguments
+		# specifying -n2 groups the input by command lines of 2 and sends them to mv (thus renaming fna to fasta)
+	4. cut -f1-2 knownGene.txt
+
+2. 
+	1. seq 1 12
+	2. seq 1 12 | xargs -n3 sh -c 'echo First number: $0\; second number $1\; third number $2\;'
+		# seq 1 12 | xargs -n3 sh -c 'echo "First number: $0; second number $1; third number $2;"' <== ALT ANSWER
+		# -n3 splits the input of xargs into lines of 3: 1 2 3; 4 5 6; 7 8 9; 10 11 12
+		# then we want to print using echo but we want the xargs variables to be the numbers so we need $0 $1 and $2
+		# use sh -c to print that '' command to the shell; then echo to print that "" to the console
+		# seq 1 12 | xargs -n3 printf 'First number: %d; second number %d; third number %d\n' <== ALT ANSWER
+		# printf offers more formatting but echo exits with a 0 status and automatically prints a newline
+
+3. 
+	1. 6
+	2. -6
+	3. 9
+	4. 3
+	5. 6
+	6. 9
+
+4. 
+	1. FALSE
+	2. TRUE
+	3. FALSE
+	4. TRUE
+	5. FALSE
+	6. TRUE
+	7. FALSE
+	8. TRUE
+
+5. 
+	1. head -1 file-1.fastq | awk '$1 ~ /^@/ {print "FASTQ"}'
+	2. head -1 file-1.gb | awk '$1 ~ /LOCUS/ {print "GenBank"}'
+	3. head -1 file.embl | awk '$1 ~ /ID/ {print "EMBL"}'
+	4. head -1 file.mega | awk '$1 ~ /#mega/ {print "MEGA"}'
+
+6. sudo apt install git
+
+7. 
+	1.
+	2. tar -xvf samtools-1.16.1.tar.bz2
+		# If the Makefile doesn't exist, you can generate one by using 'cmake' or by running the executable './configure' in the samtools folder.
+	3. make
+	4. sudo cp samtools /usr/local/bin
+		# After 'make' is ran, the 'samtools' bin file is created. Move it to bin/ so samtools command becomes part of path
+		# To see help info, just type the name of the program without any arguments
+	5. samtools
+		# I received help information.
+
+8.
+	1. 	git clone git://genome-source.soe.ucsc.edu/kent.git
+	2. 	# From the README file I followed the general instructions for the source tree compilation and individual program installation.
+		rsync -azvP rsync://hgdownload.soe.ucsc.edu/genome/admin/jksrc.zip ./
+		export MACHTYPE="x86_64"
+		source ~/.bashrc
+		mkdir ~/bin/$MACHTYPE
+		...
+	3. 
+	
