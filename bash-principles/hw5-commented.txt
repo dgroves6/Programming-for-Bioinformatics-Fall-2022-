@@ -1,0 +1,66 @@
+1.
+	1. perl -e 'foreach(1..100){print $_."\n".($_ / 2)."\n"}' > uniq.txt
+	2. sort -n uniq.txt | tee out.txt | wc -l
+		# There are 200 lines
+	3. sort -n uniq.txt | uniq
+		# The number of lines went from 200 to 150. The duplicates 1-50 were removed.
+	4. sort -n uniq.txt | uniq -u
+	5. sort -n uniq.txt | uniq -c
+
+2. 
+	1. 	#!/bin/bash
+		s=0
+		for i in $(seq 1 100)
+		do
+			s=$(($s+$i))
+		done
+		echo $s
+	
+	2. 	#!/bin/bash
+		foo="Hello"
+		for ((i=0; i<${#foo}; i++))
+		do
+			echo ${foo:$i:1}
+		done
+
+	3. 	#!/bin/bash
+		x=0; y=100
+		until [ $x -eq $y ]
+		do
+			((x++))
+			((y--))
+		done
+		echo "x and y are equal"
+	
+	4. 	#!/bin/bash
+		x=0; y=100
+		until [ $x -eq $y ]
+		do
+			((x++))
+			((y--))
+		done
+		echo "x and y are equal"
+	
+	5. 	#!/bin/bash
+		while getopts "LGB:" orient
+		do
+			case $orient in
+				L) echo "Rock, paper, ... wink, wink";;
+				G) echo "Queen, whatchu said?";;
+				B) num=$OPTARG; echo "I'm a bicon in $num different countries.";;
+			esac
+		done
+	
+	6. 	#!/bin/bash
+		echo "Please enter a day:"
+		read day
+		case $day in
+			Monday) echo "Monday is day number 1";;
+			Tuesday) echo "Tuesday is day number 2";;
+			Wednesday) echo "Wednesday is day number 3";;
+			Thursday) echo "Thursday is day number  4";;
+			Friday) echo "Friday is day number 5";;
+			Saturday) echo "Saturday is day number 6";;
+			Sunday) echo "Sunday is day number 7";;
+		esac
+
