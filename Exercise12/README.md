@@ -27,10 +27,18 @@ Details of test cases, previous versions, and general notes for the problem
 
 ## Time Comparisons
 - Correct Numbers of Matches: 
-    - 8185 for chrY     87890 for trio      2693179 for full TE.bed and Intron.bed
+    - 8185 for chrY
+    - 87890 for trio
+    - 2693179 for full TE.bed and Intron.bed
 - Brute Force
-    - chrY in 3.1 s     trio in 36.4 s      full in 40 min
+    - chrY in 3.1 s
+    - trio in 36.4 s
+    - full in 40 min
 - Modified Brute Force
-    - chrY in 0.6 s     trio in 10.2 s      full in 9.5 min
+    - chrY in 0.6 s
+    - trio in 10.2 s
+    - full in 9.5 min
 - Pointer Algorithm
-    - chrY in 0.06 s    trio in 0.7 s       full in 74 s
+    - chrY in 0.06 s
+    - trio in 0.7 s
+    - full in 74 s
